@@ -1,19 +1,12 @@
 import React, { useEffect, useState} from "react"
 import Header from "./Header";
 import KidList from "./KidList";
-import MemoryList from "./MemoryList";
+import NewMemory from "./NewMemory";
 
 function App (){
 
-    const [kids, setKids] = useState([])
-    const [memories, setMemories] = useState([])
+const [kids, setKids] = useState([])                                       
     
-
-    useEffect(() => {
-        fetch("http://localhost:9292/memories")
-            .then(res => res.json())
-            .then(memories => setMemories(memories))
-    }, [])
 
     useEffect(() => {
         fetch("http://localhost:9292/kids")
@@ -26,19 +19,10 @@ function App (){
         setKids(updatedKids)
     }
 
-    function handleAddMemory(newMemory){
-        const updatedMemories = [...memories, newMemory]
-        setMemories(updatedMemories)
-    }
 
     function handleDeleteKid(deletedKid){
         const updatedKids= kids.filter((kid) => kid.id !== deletedKid)
         setKids(updatedKids)
-    }
-
-    function handleDeleteMemory(deletedMemory){
-        const updatedMemories = memories.filter((memory) => memory.id !== deletedMemory)
-        setMemories(updatedMemories)
     }
 
 
@@ -46,8 +30,10 @@ function App (){
     return (
         <div className="app">
             <Header />
+            <h1></h1>
+            <NewMemory />
+            <h1></h1>
             <KidList kids={kids} handleAddKid={handleAddKid} handleDeleteKid={handleDeleteKid}/>
-            <MemoryList memories={memories} handleAddMemory={handleAddMemory} handleDeletedMemory={handleDeleteMemory}/>
         </div>
 
     )
