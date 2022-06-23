@@ -11,17 +11,16 @@ function KidCard({kid, handleDeleteKid }){
             .then(() => handleDeleteKid(kid))
     };
 
+    const { img_src, name, age } = kid
+
 
     return(
-        <div>
-            <h2>{kid.name} ({kid.age})</h2>
-            <ul>
-                {kid.memories.map((memory) => (
-                    <li>{memory.body} {memory.date}</li>
-                ))}
-            </ul>
-            <button onClick={deleteKid}>delete</button>
-        </div>
+        <li>
+            <img src={img_src} width="400" height="400" />
+            <h1>{kid.name} ({kid.age})</h1>
+            <button className="secondary" onClick={deleteKid}>Delete</button>
+            <button className="kid">Memories</button>
+        </li>
 
     )
 

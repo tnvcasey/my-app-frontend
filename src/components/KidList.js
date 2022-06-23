@@ -7,7 +7,7 @@ function KidList({kids, handleDeleteKid}) {
     return(
         <div>
             <h2 className="memoryHeader">Memories:</h2>
-            <ul>
+            <ul className="cards">
                 {kids.map((kid) => (
                     <KidCard key={kid.id} kid={kid} handleDeleteKid={handleDeleteKid} />
                 ))}

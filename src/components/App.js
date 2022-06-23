@@ -14,8 +14,8 @@ const [kids, setKids] = useState([])
             .then(kids => setKids(kids))
     }, [])
 
-    function handleAddKid(newKid){
-        const updatedKids= [...kids, newKid]
+    function handleAddPost(newPost){
+        const updatedKids= [...kids, newPost]
         setKids(updatedKids)
     }
 
@@ -31,9 +31,9 @@ const [kids, setKids] = useState([])
         <div className="app">
             <Header />
             <h1></h1>
-            <NewMemory />
+            <NewMemory handleAddPost={handleAddPost}/>
             <h1></h1>
-            <KidList kids={kids} handleAddKid={handleAddKid} handleDeleteKid={handleDeleteKid}/>
+            <KidList kids={kids}  handleDeleteKid={handleDeleteKid}/>
         </div>
 
     )
