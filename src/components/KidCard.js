@@ -1,24 +1,16 @@
 import React from "react"
+import { NavLink } from "react-router-dom"
 
 
-function KidCard({kid, handleDeleteKid }){
+function KidCard({ kid }){
 
-    function deleteKid(){
-        fetch(`http://localhost:9292/kids/${kid.id}`, {
-            method: "DELETE",
-        })
-            .then((res) => res.json())
-            .then(() => handleDeleteKid(kid))
-    };
-
-    const { img_src, name, age } = kid
 
 
     return(
         <li>
-            <img src={img_src} width="400" height="400" />
-            <h1>{kid.name} ({kid.age})</h1>
-            <button className="secondary" onClick={deleteKid}>Delete</button>
+            <img src={kid.img_src} width="200" height="200" />
+            <NavLink to={`/kids/${kid.id}`}>{kid.name} ({kid.age})</NavLink>
+            <button className="secondary">Delete</button>
             <button className="kid">Memories</button>
         </li>
 

@@ -6,6 +6,10 @@ body {
   --green: rgb(39, 189, 39);
 }
 
+h1.memoryHeader{
+  font-family: cursive;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -112,8 +116,14 @@ input:focus {
   border-bottom: 2px solid var(--green);
 }
 
+h2.kids{
+  font-size: 3rem;
+  font-family: cursive;
+  text-align: center;
+}
+
 .card {
-  margin: 4rem;
+  margin: 10rem;
 }
 
 .card img {
@@ -121,7 +131,7 @@ input:focus {
 }
 
 .card button {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 @media (min-width: 768px) {

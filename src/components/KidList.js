@@ -1,15 +1,14 @@
-import { getNodeText } from "@testing-library/react";
 import React from "react"
 import KidCard from "./KidCard";
 
-function KidList({kids, handleDeleteKid}) {
+function KidList({kids}) {
 
     return(
         <div>
-            <h2 className="memoryHeader">Memories:</h2>
+            <h2 className="kids">My Kids</h2>
             <ul className="cards">
                 {kids.map((kid) => (
-                    <KidCard key={kid.id} kid={kid} handleDeleteKid={handleDeleteKid} />
+                    <KidCard key={kid.id} kid={kid} />
                 ))}
             </ul>
         </div>
