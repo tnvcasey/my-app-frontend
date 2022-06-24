@@ -1,8 +1,16 @@
 import React from "react";
+import MemoryCard from "./MemoryCard";
 
-function MemoryList(){
+function MemoryList({ memories }){
     return(
-        <h1>MemoryList</h1>
+        <div>
+            <h1>MemoryList</h1>
+            <ul>
+                {memories.map((memory) => (
+                    <MemoryCard memory={memory} key={memory.id} />
+                ))}
+            </ul>
+        </div>
     )
 }
 
