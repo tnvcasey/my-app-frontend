@@ -1,7 +1,21 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import KidCard from "./KidCard";
 
-function KidList({kids}) {
+function KidList() {
+
+    const [kids, setKids] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:9292/kids")
+            .then(res => res.json())
+            .then(kids => setKids(kids))
+    }, [])
+
+    function handleAddKid(newKid){
+        const updatedKids = [...kids, newKid]
+        setKids(updatedKids)
+    }
+
 
     return(
         <div>
