@@ -14,8 +14,8 @@ function KidDetails(){
 
         return(
             <h1>
-                <p>Kid Details</p>
-
+                <h2>{kid.name} ({kid.age})</h2>
+                <img src={kid.img_src} width="300" height="300" ></img>
             </h1>
         )
     }
