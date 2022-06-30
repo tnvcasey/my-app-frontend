@@ -18,7 +18,6 @@ import { NavLink } from "react-router-dom";
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/kids">My Kids</NavLink></li>
                 <li><NavLink to="/kids/new">Add a Kid</NavLink></li>
-                <li><NavLink to="/memories/new">Add New Memory</NavLink></li>
             </ul>
         </div>
   )}

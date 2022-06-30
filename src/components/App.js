@@ -4,8 +4,7 @@ import Home from "./Home";
 import MemoryList from "./MemoryList";
 import { Route, Switch } from 'react-router-dom'
 import NavBar from "./NavBar";
-import NewKid from "./NewKid";
-import NewMemory from "./NewMemory";
+import NewKid from "./NewKid"
 import KidDetails from "./KidDetails";
 
 function App (){
@@ -27,9 +26,6 @@ function App (){
                     </Route>
                     <Route exact path='/kids/:id'>
                         <KidDetails />
-                    </Route>
-                    <Route exact path='/memories/new'>
-                        <NewMemory />
                     </Route>
                  </Switch>
              </div>

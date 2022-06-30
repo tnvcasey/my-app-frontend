@@ -18,12 +18,18 @@ function KidDetails(){
         return(
             <div>
                 <h1>{kid.name} ({kid.age})</h1>
-                <img src={kid.img_src} width="400" height="300"></img>
+                <img src={kid.img_src} width="400" height="400"></img>
                 <h2>
                     {kid.memories?.map((memory) => (
-                        <li>{memory.body}</li>
+                        <li>{memory.body} *Date:({memory.date})*</li>
                     ))}
                 </h2>
+                <h3>Add New Memory</h3>
+                <form>
+                    <input type="text" placeholder="Description of Memory"/>
+                    <input type="text" placeholder="Date"/>
+                    <button>Submit Memory</button>
+                </form>
 
             </div>
         )

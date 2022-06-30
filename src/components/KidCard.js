@@ -9,9 +9,9 @@ function KidCard({ kid }){
     return(
         <li>
             <img src={kid.img_src} width="200" height="200" />
-            <NavLink to={`/kids/${kid.id}`}>{kid.name}</NavLink>
+            <h3>{kid.name}</h3>
+            <NavLink to={`/kids/${kid.id}`}>Memories</NavLink>
             <button className="secondary">Delete</button>
-            <button className="kid">Memories</button>
         </li>
 
     )
