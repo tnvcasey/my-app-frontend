@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, NavLink  } from "react-router-dom"
 
 function KidDetails(){
 
@@ -14,7 +14,6 @@ function KidDetails(){
 
     }, [])
 
-     //const mems = kid.memories.map((memory) => (<li key={memory.id}>{memory}</li>)
         return(
             <div>
                 <h1>{kid.name} ({kid.age})</h1>
@@ -24,13 +23,7 @@ function KidDetails(){
                         <li>{memory.body} *Date:({memory.date})*</li>
                     ))}
                 </h2>
-                <h3>Add New Memory</h3>
-                <form>
-                    <input type="text" placeholder="Description of Memory"/>
-                    <input type="text" placeholder="Date"/>
-                    <button>Submit Memory</button>
-                </form>
-
+                <NavLink to={`/kids/${ kid.id }/memories/new`}>Add a New Memory</NavLink>
             </div>
         )
     }
