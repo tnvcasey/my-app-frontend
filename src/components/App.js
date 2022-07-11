@@ -56,7 +56,7 @@ function App (){
                         <NewKid handleAddKid={handleAddKid}/>
                     </Route>
                     <Route exact path='/kids/:id'>
-                        <KidDetails />
+                        <KidDetails handleAddMemory={handleAddMemory}/>
                     </Route>
                  </Switch>
              </div>

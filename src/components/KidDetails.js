@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink  } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
-function KidDetails(){
+function KidDetails({ handleAddMemory }){
 
     const [kid, setKid] = useState([])
 
@@ -33,7 +33,7 @@ function KidDetails(){
         })
             .then((res) => res.json())
             .then((newMemory) => {
-                console.log(newMemory)
+                handleAddMemory(newMemory)
 
             })
     }
