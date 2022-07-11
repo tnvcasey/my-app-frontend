@@ -14,16 +14,55 @@ function KidDetails(){
 
     }, [])
 
+    const [body, setBody] = useState("")
+    const [date, setDate] = useState("")
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const memoryData = {
+            body: body, 
+            date: date, 
+            kid_id: id
+        }
+        fetch(`http://localhost:9292/memories`, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json", 
+            }, 
+            body: JSON.stringify(memoryData), 
+        })
+            .then((res) => res.json())
+            .then((newMemory) => {
+                console.log(newMemory)
+
+            })
+    }
+
+
+
+
         return(
             <div>
-                <h1>{kid.name} ({kid.age})</h1>
-                <img src={kid.img_src} width="400" height="400"></img>
-                <h2>
+                <h1>{kid.name} ({kid.age}) </h1>
+                <img src={kid.img_src} width="300" height="300"></img>
+                <h3>
                     {kid.memories?.map((memory) => (
-                        <li>{memory.body} *Date:({memory.date})*</li>
+                        <div>
+                            <li>*{memory.body}* Date:({memory.date})*</li>
+                            <button>Delete Memory</button>
+                        </div>
                     ))}
-                </h2>
-                <NavLink to={`/kids/${ kid.id }/memories/new`}>Add a New Memory</NavLink>
+                </h3>
+                *********************************************************************************
+                <h2>Add New Memory for {kid.name}</h2>
+                        <form onSubmit={handleSubmit}>
+                            <label>Description:</label>
+                            <input type="text" value={body} onChange={(e) => setBody(e.target.value)} />
+                            <label>Date:</label>
+                            <input type="text" value={date} onChange={(e) => setDate(e.target.value)}/>
+                            <button>Save Memory</button>
+                        </form>
+                **********************************************************************************
             </div>
         )
     }

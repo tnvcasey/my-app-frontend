@@ -41,6 +41,12 @@ button {
   cursor: pointer;
 }
 
+button.delete {
+  color: black;
+  background-color: pink;
+  
+}
+
 button.primary {
   background-color: gold;
   color: rgb(133, 39, 39);
