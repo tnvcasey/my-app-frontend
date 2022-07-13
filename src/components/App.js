@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 import NavBar from "./NavBar";
 import NewKid from "./NewKid"
 import KidDetails from "./KidDetails";
+import EditKid from "./EditKid";
 
 function App (){
 
@@ -57,6 +58,9 @@ function App (){
                     </Route>
                     <Route exact path='/kids/:id'>
                         <KidDetails handleAddMemory={handleAddMemory}/>
+                    </Route>
+                    <Route exact path='/kids/:id/edit'>
+                        <EditKid />
                     </Route>
                  </Switch>
              </div>

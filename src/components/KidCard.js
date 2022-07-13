@@ -15,12 +15,12 @@ function KidCard({ kid, handleDelete }){
 
 
     return(
-        <li>
-            <img src={kid.img_src} width="200" height="200"  />
+        <div>
+            <img src={kid.img_src} width="200" height="200" />
             <h3>{kid.name}</h3>
             <NavLink to={`/kids/${kid.id}`}>Memories</NavLink>
             <button onClick={(kidDelete)} className="secondary">Delete</button>
-        </li>
+        </div>
 
     )
 

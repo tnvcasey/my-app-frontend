@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
 
 function KidDetails({ handleAddMemory }){
 
@@ -63,6 +63,8 @@ function KidDetails({ handleAddMemory }){
                             <button>Save Memory</button>
                         </form>
                 **********************************************************************************
+
+                <h2><NavLink to={`/kids/${kid.id}/edit`}>Edit Kid</NavLink></h2>
             </div>
         )
     }
