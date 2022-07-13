@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 
 function EditKid(){
 
-    const [kid, setKid] = useState(); 
+    const [kid, setKid] = useState({}); 
     const [img_src, setImg_src] = useState("");
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
