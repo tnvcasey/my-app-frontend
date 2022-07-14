@@ -39,8 +39,6 @@ function KidDetails({ handleAddMemory }){
     }
 
 
-
-
         return(
             <div>
                 <h1>{kid.name} ({kid.age}) </h1>
@@ -49,7 +47,6 @@ function KidDetails({ handleAddMemory }){
                     {kid.memories?.map((memory) => (
                         <div>
                             <li>*{memory.body}* Date:({memory.date})*</li>
-                            <button>Delete Memory</button>
                         </div>
                     ))}
                 </h3>
