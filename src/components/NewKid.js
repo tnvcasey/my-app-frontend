@@ -34,7 +34,7 @@ function NewKid({handleAddKid}){
 
     return(
         <form onSubmit={handleSubmit}>
-            <label>Picture</label>
+            <label>Picture URL:</label>
             <input type="text" value={img_src} onChange={(e) => setImg_src(e.target.value)} />
             <label>Name:</label>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} />

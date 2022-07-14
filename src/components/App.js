@@ -28,6 +28,17 @@ function App (){
         setKids(updatedKids)
     }
 
+    function handleUpdatedKid(updatedKidObj){
+        const updatedKids = kids.map((kid) => {
+            if(kid.id === updatedKidObj.id) {
+                return updatedKidObj;
+            } else {
+                return kid
+            }
+        });
+        setKids(updatedKids)
+    }
+
     useEffect(() => {
         fetch("http://localhost:9292/memories")
             .then((res) => res.json())
@@ -60,7 +71,7 @@ function App (){
                         <KidDetails handleAddMemory={handleAddMemory}/>
                     </Route>
                     <Route exact path='/kids/:id/edit'>
-                        <EditKid />
+                        <EditKid handleUpdatedKid={handleUpdatedKid}/>
                     </Route>
                  </Switch>
              </div>
