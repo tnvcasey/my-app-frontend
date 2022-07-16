@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from "react"
 import KidList from "./KidList"
-import Home from "./Home"; 
 import { Route, Switch } from 'react-router-dom'
 import NavBar from "./NavBar";
 import NewKid from "./NewKid"
@@ -58,9 +57,6 @@ function App (){
              <div className="app">
                  <NavBar />
                  <Switch>
-                     <Route exact path='/'>
-                         <Home />
-                    </Route>
                     <Route exact path='/kids'>
                         <KidList kids={kids} handleDelete={handleDelete}/>
                     </Route>
