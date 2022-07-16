@@ -139,9 +139,3 @@ h2.kids{
     width: calc(50% - 2rem);
   }
 }
-
-
-.headerGods{
-  font-size: 3rem;
-  text-align: center;
-}
