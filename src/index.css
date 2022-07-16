@@ -47,11 +47,6 @@ button.delete {
   
 }
 
-button.primary {
-  background-color: gold;
-  color: rgb(133, 39, 39);
-}
-
 button.secondary {
   background-color: pink;
   text-align: center;
