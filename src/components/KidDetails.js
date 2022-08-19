@@ -1,17 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useParams, NavLink } from "react-router-dom"
 
-function KidDetails({ handleAddMemory }){
+function KidDetails({ handleAddMemory, handleUpdatedKid }){
 
     const [kid, setKid] = useState([])
-
-    const { id } = useParams(); 
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("")
+    const [img_src, setImg_src] = useState("")
+    const { id } = useParams();
 
     useEffect(() => {
         fetch(`http://localhost:9292/kids/${id}`)
             .then(res => res.json())
-            .then(kid => setKid(kid))
+            .then(kid => {
+                setKid(kid)
+                setAge(kid.age)
+                setName(kid.name)
+                setImg_src(kid.img_src)
+            })
 
+    }, [])
+
+    useEffect(async () => {
+        const resp = await fetch(`http://localhost:9292/kids/${ id }`)
+        const data = await resp.json();
+        setKid(data)
+        setName(data.name)
+        setImg_src(data.img_src)
+        setAge(data.age)
     }, [])
 
     const [body, setBody] = useState("")
@@ -38,6 +54,25 @@ function KidDetails({ handleAddMemory }){
             })
     }
 
+    function handleSubmitUpdate(e){
+        e.preventDefault();
+        const newData = {
+            img_src: img_src, 
+            name: name, 
+            age: age
+        }
+        fetch(`http://localhost:9292/kids/${id}`, {
+            method: "PATCH", 
+            headers: {
+                "Content-Type": "application/json", 
+            },
+            body: JSON.stringify(newData),
+        })
+        .then((res) => res.json())
+        .then((updatedKid) => handleUpdatedKid(updatedKid))
+    }
+
+
 
         return(
             <div>
@@ -46,7 +81,7 @@ function KidDetails({ handleAddMemory }){
                 <h3>
                     {kid.memories?.map((memory) => (
                         <div>
-                            <li>*{memory.body}* Date:({memory.date})*</li>
+                            <li>*{memory.body}* Date:({memory.date})</li>
                         </div>
                     ))}
                 </h3>
@@ -60,8 +95,16 @@ function KidDetails({ handleAddMemory }){
                             <button>Save Memory</button>
                         </form>
                 **********************************************************************************
-
-                <h2><NavLink to={`/kids/${kid.id}/edit`}>Edit Kid</NavLink></h2>
+                <form onSubmit={handleSubmitUpdate}>
+                    <h1>Edit {kid.name}</h1>
+                    <label>Image URL:</label>
+                    <input type="text" value={img_src} onChange={(e) => setImg_src(e.target.value)}/>
+                    <label>Name:</label>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+                    <label>Age:</label>
+                    <input type="text" value={age} onChange={(e) => setAge(e.target.value)}/>
+                    <button type="submit">Update Kid</button>
+                </form>
             </div>
         )
     }

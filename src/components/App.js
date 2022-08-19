@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom'
 import NavBar from "./NavBar";
 import NewKid from "./NewKid"
 import KidDetails from "./KidDetails";
-import EditKid from "./EditKid";
 
 function App (){
 
@@ -49,25 +48,18 @@ function App (){
         setMemories(updatedMemories)
     }
 
-
-
-
-
     return (
              <div className="app">
                  <NavBar />
                  <Switch>
-                    <Route exact path='/kids'>
+                    <Route exact path='/'>
                         <KidList kids={kids} handleDelete={handleDelete}/>
                     </Route>
                     <Route exact path='/kids/new'>
                         <NewKid handleAddKid={handleAddKid}/>
                     </Route>
                     <Route exact path='/kids/:id'>
-                        <KidDetails handleAddMemory={handleAddMemory}/>
-                    </Route>
-                    <Route exact path='/kids/:id/edit'>
-                        <EditKid handleUpdatedKid={handleUpdatedKid}/>
+                        <KidDetails handleAddMemory={handleAddMemory} handleUpdatedKid={handleUpdatedKid}/>
                     </Route>
                  </Switch>
              </div>

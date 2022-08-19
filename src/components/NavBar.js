@@ -15,7 +15,7 @@ const linkStyles = {
     return (
         <div>
             <ul>
-                <li><NavLink to="/kids" style={linkStyles}>My Kids</NavLink></li>
+                <li><NavLink to="/" style={linkStyles}>My Kids</NavLink></li>
                 <li><NavLink to="/kids/new" style={linkStyles}>Add a Kid</NavLink></li>
             </ul>
         </div>
