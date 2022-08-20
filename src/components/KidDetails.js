@@ -24,8 +24,7 @@ function KidDetails({ handleAddMemory, handleUpdatedKid }){
     const [body, setBody] = useState("")
     const [date, setDate] = useState("")
 
-    function handleSubmit(e){
-        e.preventDefault()
+    function handleSubmit(){
         const memoryData = {
             body: body, 
             date: date, 
@@ -45,8 +44,7 @@ function KidDetails({ handleAddMemory, handleUpdatedKid }){
             })
     }
 
-    function handleSubmitUpdate(e){
-        e.preventDefault();
+    function handleSubmitUpdate(){
         const newData = {
             img_src: img_src, 
             name: name, 
