@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 function KidDetails({ handleAddMemory, handleUpdatedKid }){
 
@@ -19,15 +19,6 @@ function KidDetails({ handleAddMemory, handleUpdatedKid }){
                 setImg_src(kid.img_src)
             })
 
-    }, [])
-
-    useEffect(async () => {
-        const resp = await fetch(`http://localhost:9292/kids/${ id }`)
-        const data = await resp.json();
-        setKid(data)
-        setName(data.name)
-        setImg_src(data.img_src)
-        setAge(data.age)
     }, [])
 
     const [body, setBody] = useState("")
@@ -96,7 +87,7 @@ function KidDetails({ handleAddMemory, handleUpdatedKid }){
                         </form>
                 **********************************************************************************
                 <form onSubmit={handleSubmitUpdate}>
-                    <h1>Edit {kid.name}</h1>
+                    <h2>Edit {kid.name}</h2>
                     <label>Image URL:</label>
                     <input type="text" value={img_src} onChange={(e) => setImg_src(e.target.value)}/>
                     <label>Name:</label>
