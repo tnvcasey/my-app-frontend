@@ -43,12 +43,12 @@ button {
 
 button.delete {
   color: black;
-  background-color: pink;
+  background-color: ivory;
   
 }
 
 button.secondary {
-  background-color: pink;
+  background-color: ivory;
   text-align: center;
   padding: 0.25rem 2rem;
 
